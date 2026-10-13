@@ -1,0 +1,38 @@
+# REFERENCE ENVIRONMENT (author's workstation, python3.10)
+# Command: python3.10 -u exp16_mcdcheck.py | tee exp16.txt
+============================================================================
+A. Fast-MCD on the full pool: genuine failure, or a search artefact?
+============================================================================
+N=250, p=4, h=127.  Contaminants sit at squared Mahalanobis
+distance 48 from the centre (clean E[D]=4) with scatter
+0.5 I, so they form a TIGHT, well separated cluster.
+
+--- eps=0.20   outliers ~50 < h=127 ---
+                   method     RMSE   median      P90   frac>1
+         sklearn Fast-MCD    0.357    0.129    0.233    0.035
+          50-start C-step    0.142    0.122    0.201    0.000
+              sample mean    1.230    1.208    1.432    0.895
+  determinant diagnostic (50-start search):
+    returned subset has SMALLER logdet than the all-clean subset in 92% of runs
+
+--- eps=0.30   outliers ~75 < h=127 ---
+                   method     RMSE   median      P90   frac>1
+         sklearn Fast-MCD    1.978    2.027    2.334    0.900
+          50-start C-step    1.312    0.172    2.456    0.305
+              sample mean    1.808    1.805    2.008    1.000
+  determinant diagnostic (50-start search):
+    returned subset has SMALLER logdet than the all-clean subset in 82% of runs
+    among the 30% of runs with squared error > 1, that figure is 100%, mean logdet gap 0.272
+    => the objective PREFERS the contaminated subset; this is estimator breakdown, not a search failure.
+
+
+============================================================================
+B. Sigma_0 = 3*Sigma under COMMON RANDOM NUMBERS
+============================================================================
+selections identical between Sigma and 3*Sigma in 4000/4000 replications (100.0%)
+theoretical RE* = p/c_1 = 2.8487
+
+                  variant       RE    s.e.
+  oracle  Sigma_0 = Sigma    2.858   0.056
+         Sigma_0 = 3Sigma    2.858   0.056
+              Sigma_0 = I    3.320   0.061

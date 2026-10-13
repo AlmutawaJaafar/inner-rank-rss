@@ -1,0 +1,55 @@
+==============================================================================
+A/C/D  Clean data: do Theorem 4's moments and the closed-form
+       interval survive the MAD pool pilot?   p=4, n=50, 4000 reps
+==============================================================================
+  m       pilot  tr ratio  cov disc  ||bias||   b/se  Sig disc  Sig tr   cover  cov(or)
+  5      oracle     0.970     0.068    0.0032    1.2     0.010   1.001   0.922    0.950
+  5    MAD pool     1.693     2.080    0.0028    1.0     0.891   0.861   0.669    0.702
+ 10      oracle     1.012     0.095    0.0031    1.4     0.009   1.002   0.913    0.950
+ 10    MAD pool     1.524     2.118    0.0023    1.1     1.067   0.842   0.705    0.729
+
+  nominal coverage 0.95, Monte Carlo s.e. 0.0034
+  'tr ratio'  = tr Cov_obs / tr[(c_1/p)Sigma/n]       (1 = Theorem 4 holds)
+  'cov disc'  = ||A^-1/2 Cov_obs A^-1/2 - I||_F        (0 = exact)
+  'Sig disc'  = ||Sigma^-1/2 E[Sigmahat] Sigma^-1/2 - I||_F
+
+==============================================================================
+B  Contamination exclusion under the MAD pool pilot:  pi_1 vs eps^m
+==============================================================================
+  m   eps  shift       pilot   pi_1 obs      eps^m   ratio
+  5  0.10     12      oracle   0.000015   0.000010    1.50
+  5  0.10     12    MAD pool   0.000000   0.000010    0.00
+  5  0.20     12      oracle   0.000290   0.000320    0.91
+  5  0.20     12    MAD pool   0.000280   0.000320    0.87
+ 10  0.10     12      oracle   0.000000   0.000000    0.00
+ 10  0.10     12    MAD pool   0.000000   0.000000    0.00
+ 10  0.20     12      oracle   0.000000   0.000000    0.00
+ 10  0.20     12    MAD pool   0.000000   0.000000    0.00
+
+  5  0.10      6      oracle   0.000010   0.000010    1.00
+  5  0.10      6    MAD pool   0.000015   0.000010    1.50
+  5  0.20      6      oracle   0.000310   0.000320    0.97
+  5  0.20      6    MAD pool   0.000775   0.000320    2.42
+ 10  0.10      6      oracle   0.000000   0.000000    0.00
+ 10  0.10      6    MAD pool   0.000000   0.000000    0.00
+ 10  0.20      6      oracle   0.000000   0.000000    0.00
+ 10  0.20      6    MAD pool   0.000000   0.000000    0.00
+
+==============================================================================
+E  Dimension: the same contamination comparison at p = 10
+==============================================================================
+  p  m   eps       pilot  tr ratio  ||bias||      pi_1     eps^m
+  4  5  0.00    MAD pool     1.662    0.0050  0.000000  0.000000
+  4  5  0.20    MAD pool     1.690    0.1178  0.000790  0.000320
+  4 10  0.00    MAD pool     1.551    0.0032  0.000000  0.000000
+  4 10  0.20    MAD pool     1.585    0.1704  0.000000  0.000000
+ 10  5  0.00    MAD pool     1.269    0.0098  0.000000  0.000000
+ 10  5  0.20    MAD pool     1.382    0.1312  0.013740  0.000320
+ 10 10  0.00    MAD pool     1.157    0.0096  0.000000  0.000000
+ 10 10  0.20    MAD pool     1.159    0.0994  0.000760  0.000000
+
+  p=10 uses the same diagonal MAD pilot, which ignores the AR(1)
+  correlations; the gain scales as m^{2/p}, so the design is
+  expected to be markedly weaker here than at p=4.
+
+elapsed 52s

@@ -1,0 +1,82 @@
+==============================================================================
+p=4, m=5, measured n=50, screened pool N=250, 500 reps
+RMSE of the location estimate; 'rel' is relative to MCD on the full pool
+==============================================================================
+
+  eps = 0.00
+            method     RMSE     rel   ms/est
+          mean (N)   0.1256    0.89     0.01
+        median (N)   0.1590    1.13     0.05
+           OGK (N)   0.1339    0.95     1.17
+           MCD (N)   0.1411    1.00    22.46
+      MCD (n, SRS)   0.3570    2.53    17.75
+         INNER (n)   0.2207    1.56     0.20
+
+  eps = 0.10
+            method     RMSE     rel   ms/est
+          mean (N)   0.6174    4.50     0.01
+        median (N)   0.2067    1.51     0.05
+           OGK (N)   0.1340    0.98     1.13
+           MCD (N)   0.1373    1.00    23.04
+      MCD (n, SRS)   0.3667    2.67    17.34
+         INNER (n)   0.2274    1.66     0.20
+
+  eps = 0.20
+            method     RMSE     rel   ms/est
+          mean (N)   1.2293    3.08     0.01
+        median (N)   0.3616    0.91     0.05
+           OGK (N)   0.8377    2.10     1.15
+           MCD (N)   0.3990    1.00    24.32
+      MCD (n, SRS)   0.9285    2.33    17.82
+         INNER (n)   0.2546    0.64     0.21
+
+  eps = 0.30
+            method     RMSE     rel   ms/est
+          mean (N)   1.8080    0.88     0.01
+        median (N)   0.6000    0.29     0.05
+           OGK (N)   1.8572    0.91     1.14
+           MCD (N)   2.0460    1.00    24.26
+      MCD (n, SRS)   2.1552    1.05    17.56
+         INNER (n)   0.3570    0.17     0.20
+==============================================================================
+p=4, m=10, measured n=50, screened pool N=500, 300 reps
+RMSE of the location estimate; 'rel' is relative to MCD on the full pool
+==============================================================================
+
+  eps = 0.00
+            method     RMSE     rel   ms/est
+          mean (N)   0.0896    0.91     0.02
+        median (N)   0.1121    1.14     0.06
+           OGK (N)   0.0948    0.97     1.36
+           MCD (N)   0.0982    1.00    26.28
+      MCD (n, SRS)   0.3486    3.55    17.30
+         INNER (n)   0.1699    1.73     0.26
+
+  eps = 0.10
+            method     RMSE     rel   ms/est
+          mean (N)   0.6145    5.95     0.02
+        median (N)   0.1792    1.74     0.06
+           OGK (N)   0.1005    0.97     1.35
+           MCD (N)   0.1032    1.00    28.89
+      MCD (n, SRS)   0.3602    3.49    17.35
+         INNER (n)   0.2009    1.95     0.26
+
+  eps = 0.20
+            method     RMSE     rel   ms/est
+          mean (N)   1.2173    5.45     0.02
+        median (N)   0.3421    1.53     0.06
+           OGK (N)   0.7402    3.32     1.35
+           MCD (N)   0.2232    1.00    29.53
+      MCD (n, SRS)   0.9326    4.18    17.49
+         INNER (n)   0.2435    1.09     0.26
+
+  eps = 0.30
+            method     RMSE     rel   ms/est
+          mean (N)   1.8061    0.88     0.02
+        median (N)   0.5772    0.28     0.07
+           OGK (N)   1.8504    0.90     1.37
+           MCD (N)   2.0632    1.00    31.25
+      MCD (n, SRS)   2.1695    1.05    17.74
+         INNER (n)   0.2514    0.12     0.26
+
+elapsed 143s

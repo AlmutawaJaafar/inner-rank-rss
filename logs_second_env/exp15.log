@@ -1,0 +1,33 @@
+p=4, Sigma=AR(1,0.5), tr(Sigma)=4.  RE is against an SRS of n=50 units
+in every row, so the rows are directly comparable.
+'split-MCD-equal' holds the PILOT SAMPLE SIZE fixed at that of
+'split-MCD' and raises the measured size from n/2 to n.
+
+================= eps = 0.00 =================
+         variant   m  screened  measured      RE  rel.se  rms pilot    bias    RMSE
+          oracle   5       250        50   3.016   0.035     0.0000  0.0032  0.1627
+        pool-MCD   5       250        50   1.689   0.034     0.1393  0.0082  0.2148
+       split-MCD   5       250        25   1.070   0.034     0.2026  0.0121  0.2748
+ split-MCD-equal   5       375        50   1.714   0.034     0.2034  0.0047  0.2156
+          oracle  10       500        50   4.126   0.034     0.0000  0.0038  0.1372
+        pool-MCD  10       500        50   2.934   0.035     0.0945  0.0044  0.1655
+       split-MCD  10       500        25   1.609   0.035     0.1394  0.0070  0.2222
+ split-MCD-equal  10       750        50   2.692   0.035     0.1353  0.0083  0.1714
+
+================= eps = 0.20 =================
+         variant   m  screened  measured      RE  rel.se  rms pilot    bias    RMSE
+          oracle   5       250        50  46.344   0.029     0.0000  0.0069  0.1868
+        pool-MCD   5       250        50  15.290   0.102     0.3329  0.0380  0.3299
+       split-MCD   5       250        25   6.897   0.088     0.5425  0.1033  0.4915
+ split-MCD-equal   5       375        50   8.638   0.104     0.5309  0.0922  0.4352
+          oracle  10       500        50  78.850   0.028     0.0000  0.0023  0.1439
+        pool-MCD  10       500        50  45.533   0.042     0.1991  0.0073  0.1877
+       split-MCD  10       500        25  22.216   0.060     0.3486  0.0209  0.2697
+ split-MCD-equal  10       750        50  29.985   0.071     0.3588  0.0260  0.2319
+
+Interpretation: compare 'split-MCD' with 'split-MCD-equal'.  Their
+pilots are fitted on the same number of units, so the difference is
+purely the measured size.  The ratio of their REs is the factor the
+text previously asserted to be 2.
+
+elapsed 369s

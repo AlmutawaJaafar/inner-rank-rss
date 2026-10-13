@@ -1,0 +1,6 @@
+(a) innermost, (4,5),  estimated mean (as in the paper): RE 1.108 (s.e. 0.012);  theory 1.105
+(a) innermost, (4,5),                    known mean S_0: RE 1.111 (s.e. 0.012);  theory 1.105
+(b) (p,m)=(10,5)  t=0.05: kappa = 0.4694 (s.e. 0.0269)
+(b) (p,m)=(10,5)  t=0.10: kappa = 0.4487 (s.e. 0.0135)
+(b) (p,m)=(10,5)  t=0.20: kappa = 0.4590 (s.e. 0.0067)
+(b) (p,m)=(10,5)  t=0.40: kappa = 0.4523 (s.e. 0.0034)

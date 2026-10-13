@@ -1,0 +1,32 @@
+p=4, m=5, n=50, N=250, 400 replications, common random
+numbers across estimators.  Entries are RMSE = sqrt(mean ||est-mu||^2).
+
+           estimator    eps=0.00    eps=0.10    eps=0.20    eps=0.25    eps=0.30
+      inner-rank (n)       0.223       0.225       0.252       0.272       0.376
+            mean (N)       0.126       0.615       1.203       1.516       1.821
+     sklearn MCD (N)       0.142       0.137       0.298       1.211       2.075
+    50-start MCD (N)       0.145       0.137       0.148       0.304       1.298
+
+    paired MSE ratio                                                            
+          vs sklearn        0.40        0.37        1.40       19.86       30.43
+         vs 50-start        0.42        0.37        0.35        1.25       11.91
+
+  ratio > 1 means the inner-rank estimator has the smaller MSE.
+  The crossover against the careful search is where its row passes 1.
+
+paired bootstrap of the MSE ratio, 4000 resamples, percentile 95% CI
+            baseline    eps    ratio                95% CI  P(ratio>1)
+     sklearn MCD (N)   0.00     0.40          [0.37, 0.44]       0.000
+     sklearn MCD (N)   0.10     0.37          [0.34, 0.41]       0.000
+     sklearn MCD (N)   0.20     1.40          [0.79, 2.12]       0.882
+     sklearn MCD (N)   0.25    19.86        [17.39, 22.74]       1.000
+     sklearn MCD (N)   0.30    30.43        [25.67, 35.63]       1.000
+    50-start MCD (N)   0.00     0.42          [0.39, 0.46]       0.000
+    50-start MCD (N)   0.10     0.37          [0.34, 0.40]       0.000
+    50-start MCD (N)   0.20     0.35          [0.31, 0.38]       0.000
+    50-start MCD (N)   0.25     1.25          [0.60, 2.07]       0.736
+    50-start MCD (N)   0.30    11.91         [9.98, 14.14]       1.000
+
+  A CI containing 1 means the crossover is not resolved at that eps.
+
+elapsed 330s
